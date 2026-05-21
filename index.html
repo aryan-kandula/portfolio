@@ -133,6 +133,21 @@ body.h #cur::after {
 }
 .nav-hire:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 28px rgba(10, 132, 255,0.55);}
 
+/* LinkedIn nav icon button */
+.nav-li{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.10);
+  color:var(--ink-ghost);text-decoration:none;
+  transition:color .3s,border-color .3s,background .3s,transform .3s cubic-bezier(.34,1.6,.64,1);
+  flex-shrink:0;
+}
+.nav-li:hover{
+  color:#0A66C2;border-color:rgba(10,102,194,0.4);
+  background:rgba(10,102,194,0.08);transform:translateY(-2px);
+}
+.nav-li svg{width:14px;height:14px;fill:currentColor;}
+
 /* ── PAGE LAYOUT ── */
 main{position:relative;z-index:10;}
 
@@ -208,6 +223,21 @@ main{position:relative;z-index:10;}
   transition:color .3s,border-color .3s,background .3s,transform .3s;
 }
 .btn-ghost:hover{color:var(--ink);border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.06);transform:translateY(-2px);}
+
+/* LinkedIn button variant */
+.btn-linkedin{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-dim);background:transparent;padding:14px 28px;border-radius:100px;
+  border:1px solid var(--glass-border);text-decoration:none;
+  transition:color .3s,border-color .3s,background .3s,transform .3s;
+}
+.btn-linkedin svg{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
+.btn-linkedin:hover{
+  color:#0A66C2;border-color:rgba(10,102,194,0.45);
+  background:rgba(10,102,194,0.07);transform:translateY(-2px);
+}
+
 .avail-badge{
   display:inline-flex;align-items:center;gap:7px;
   font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
@@ -281,6 +311,10 @@ section{padding:120px 60px;}
 .fact-icon{font-size:18px;flex-shrink:0;width:28px;text-align:center;}
 .fact-text{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-dim);}
 .fact-text strong{color:var(--ink);display:block;font-size:13px;margin-bottom:1px;}
+
+/* LinkedIn fact link */
+.fact-item a{color:inherit;text-decoration:none;}
+.fact-item a:hover{color:var(--ink);}
 
 /* ── SKILLS ── */
 #skills{position:relative;overflow:hidden;}
@@ -514,9 +548,10 @@ section{padding:120px 60px;}
   position:relative;z-index:10;
 }
 .footer-copy{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-ghost);}
-.footer-links{display:flex;gap:20px;}
+.footer-links{display:flex;gap:20px;align-items:center;}
 .footer-links a{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-ghost);text-decoration:none;transition:color .3s;}
 .footer-links a:hover{color:var(--red-hi);}
+.footer-links a.li-footer:hover{color:#0A66C2;}
 
 /* ── HORIZONTAL MARQUEE SECTION ── */
 .marquee-section{
@@ -570,7 +605,7 @@ section{padding:120px 60px;}
   <div class="loader-bar"></div>
 </div>
 
-<!-- Cursor (hidden on touch devices via JS) -->
+<!-- Cursor -->
 <div id="cur"></div>
 
 <!-- Noise texture -->
@@ -589,6 +624,10 @@ section{padding:120px 60px;}
     <a href="#projects" data-s="projects">Projects</a>
     <a href="#education" data-s="education">Education</a>
   </div>
+  <!-- LinkedIn icon in nav -->
+  <a class="nav-li" href="https://www.linkedin.com/in/aryan-kandula" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
   <a class="nav-hire" id="navHire" href="#">Hire Me</a>
 </nav>
 
@@ -605,32 +644,36 @@ section{padding:120px 60px;}
     </div>
     <div class="hero-role"><span id="typeTarget"></span><span class="tcursor"></span></div>
     <p class="hero-bio">
-      Driven by curiosity and a passion for <em>clean, purposeful code</em> — crafting web tools, database solutions, and desktop applications from the ground up. Python & Java developer with a sharp eye for AI-assisted workflows.
+      Driven by curiosity and a passion for <em>clean, purposeful code</em> — crafting web tools, database solutions, and desktop applications from the ground up. Python &amp; Java developer with a sharp eye for AI-assisted workflows.
     </p>
     <div class="hero-actions">
       <a class="btn-primary" id="emailBtn" href="#">✉ Email Me</a>
       <a class="btn-ghost" href="https://github.com/aryan-kandula" target="_blank" rel="noopener">⌥ GitHub</a>
+      <a class="btn-linkedin" href="https://www.linkedin.com/in/aryan-kandula" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
       <span class="avail-badge"><span class="live-dot" style="width:5px;height:5px;"></span>Available now</span>
     </div>
 
     <!-- Floating stat cards -->
     <div class="hero-float">
-    <div class="stat-card rv" style="animation-delay:.2s;">
-      <div class="stat-num">3+</div>
-      <div class="stat-label">Projects Shipped</div>
-      <div class="stat-sub">From Java GUIs to full-stack Django</div>
+      <div class="stat-card rv" style="animation-delay:.2s;">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Projects Shipped</div>
+        <div class="stat-sub">From Java GUIs to full-stack Django</div>
+      </div>
+      <div class="stat-card rv" style="animation-delay:.35s;">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Languages Spoken</div>
+        <div class="stat-sub">Multilingual communicator</div>
+      </div>
+      <div class="stat-card rv" style="animation-delay:.5s;">
+        <div class="stat-num">&#8766;26</div>
+        <div class="stat-label">Graduating Summer</div>
+        <div class="stat-sub">A.S. Computer Science · FTCC</div>
+      </div>
     </div>
-    <div class="stat-card rv" style="animation-delay:.35s;">
-      <div class="stat-num">5</div>
-      <div class="stat-label">Languages Spoken</div>
-      <div class="stat-sub">Multilingual communicator</div>
-    </div>
-    <div class="stat-card rv" style="animation-delay:.5s;">
-      <div class="stat-num">&#8766;26</div>
-      <div class="stat-label">Graduating Summer</div>
-      <div class="stat-sub">A.S. Computer Science · FTCC</div>
-    </div>
-  </div>
   </div>
 
   <div class="hero-scroll">
@@ -682,6 +725,7 @@ section{padding:120px 60px;}
       <div class="fact-item"><div class="fact-icon">💬</div><div class="fact-text"><strong>Languages</strong>5 languages spoken fluently</div></div>
       <div class="fact-item"><div class="fact-icon">🤖</div><div class="fact-text"><strong>AI Coursework</strong>Studying ML fundamentals formally</div></div>
       <div class="fact-item"><div class="fact-icon">⚡</div><div class="fact-text"><strong>Currently</strong>Capstone project · StudyStream</div></div>
+      <div class="fact-item"><div class="fact-icon">🔗</div><div class="fact-text"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/aryan-kandula" target="_blank" rel="noopener">linkedin.com/in/aryan-kandula</a></div></div>
       <div class="fact-item"><div class="fact-icon">🔍</div><div class="fact-text"><strong>Status</strong>Actively seeking internships</div></div>
     </div>
   </div>
@@ -918,6 +962,10 @@ section{padding:120px 60px;}
     <div class="contact-btns">
       <a class="btn-primary" id="emailBtn2" href="#">✉ Email Me</a>
       <a class="btn-ghost" href="https://github.com/aryan-kandula" target="_blank" rel="noopener">⌥ GitHub</a>
+      <a class="btn-linkedin" href="https://www.linkedin.com/in/aryan-kandula" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
 </section>
@@ -930,6 +978,7 @@ section{padding:120px 60px;}
   <div class="footer-links">
     <a id="footerEmail" href="#">Email</a>
     <a href="https://github.com/aryan-kandula" target="_blank" rel="noopener">GitHub</a>
+    <a class="li-footer" href="https://www.linkedin.com/in/aryan-kandula" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/stars/aryan-kandula/lists/my-project-list" target="_blank" rel="noopener">Projects</a>
   </div>
 </footer>
@@ -953,7 +1002,7 @@ window.addEventListener('load',function(){
   },600);
 });
 
-// ── CUSTOM CURSOR ── (GPU-composited via translate3d, no layout thrash)
+// ── CUSTOM CURSOR ──
 (function(){
   var cur = document.getElementById('cur');
   if(!cur) return;
@@ -977,7 +1026,7 @@ window.addEventListener('load',function(){
     }
   },{passive:true});
 
-  var hoverEls=document.querySelectorAll('a,button,.btn-primary,.btn-ghost,.nav-hire,.ptag,.proj-link,.pc-link,.chip,.fact-item,.skill-group,.proj-featured,.proj-card,.ai-card,.edu-card,.marquee-item,.hero-name-line2');
+  var hoverEls=document.querySelectorAll('a,button,.btn-primary,.btn-ghost,.btn-linkedin,.nav-hire,.nav-li,.ptag,.proj-link,.pc-link,.chip,.fact-item,.skill-group,.proj-featured,.proj-card,.ai-card,.edu-card,.marquee-item,.hero-name-line2');
   hoverEls.forEach(function(el){
     el.addEventListener('mouseenter',function(){document.body.classList.add('h');},{passive:true});
     el.addEventListener('mouseleave',function(){document.body.classList.remove('h');},{passive:true});
@@ -1037,20 +1086,20 @@ window.addEventListener('load',function(){
   setTimeout(tick,1600);
 })();
 
-// ── SCROLL REVEAL (single shared observer) ──
+// ── SCROLL REVEAL ──
 (function(){
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
         e.target.classList.add('in');
-        obs.unobserve(e.target); // stop watching once revealed
+        obs.unobserve(e.target);
       }
     });
   },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 })();
 
-// ── SKILL BARS (single shared observer) ──
+// ── SKILL BARS ──
 (function(){
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1063,7 +1112,7 @@ window.addEventListener('load',function(){
   document.querySelectorAll('.sk-fill').forEach(function(f){obs.observe(f);});
 })();
 
-// ── ANIMATED BACKGROUND CANVAS (optimised) ──
+// ── ANIMATED BACKGROUND CANVAS ──
 (function(){
   var c=document.getElementById('bg-canvas');
   if(!c)return;
@@ -1079,7 +1128,6 @@ window.addEventListener('load',function(){
   window.addEventListener('resize',function(){clearTimeout(rsz);rsz=setTimeout(resize,200);},{passive:true});
   var rsz; resize();
 
-  // Reduced particle count for perf (50 → was 80)
   var N=50;
   var pts=[];
   for(var i=0;i<N;i++){
@@ -1093,14 +1141,12 @@ window.addEventListener('load',function(){
     });
   }
 
-  // Orbs use absolute coords to avoid per-frame multiply
   var orbs=[
     {rx:0.15,ry:0.2,r:360,c:'rgba(10,132,255,0.12)',phase:0,sp:.0007},
     {rx:0.88,ry:0.35,r:260,c:'rgba(94,92,230,0.08)',phase:1.2,sp:.001},
     {rx:0.55,ry:0.85,r:200,c:'rgba(10,100,200,0.065)',phase:2.8,sp:.0012},
   ];
 
-  // Spatial grid for connection culling — avoids O(n²) full scan
   var CELL=130, MAX_DIST2=120*120;
 
   function buildGrid(){
@@ -1120,7 +1166,6 @@ window.addEventListener('load',function(){
     requestAnimationFrame(draw);
     ctx.clearRect(0,0,W,H);
 
-    // Draw orbs
     orbs.forEach(function(o){
       o.phase+=o.sp;
       var ox=(o.rx+Math.sin(o.phase)*0.06)*W;
@@ -1131,7 +1176,6 @@ window.addEventListener('load',function(){
       ctx.fillStyle=g; ctx.fill();
     });
 
-    // Move & draw particles
     pts.forEach(function(p){
       p.x=(p.x+p.vx+W)%W;
       p.y=(p.y+p.vy+H)%H;
@@ -1142,7 +1186,6 @@ window.addEventListener('load',function(){
     });
     ctx.globalAlpha=1;
 
-    // Draw connections (every other frame for extra perf)
     if(frame%2===0){
       var g2=buildGrid();
       ctx.lineWidth=0.5;
@@ -1178,7 +1221,7 @@ window.addEventListener('load',function(){
   style.textContent='@keyframes rippleAnim{to{transform:scale(2.6);opacity:0;}}';
   document.head.appendChild(style);
 
-  document.querySelectorAll('.btn-primary,.btn-ghost,.nav-hire').forEach(function(btn){
+  document.querySelectorAll('.btn-primary,.btn-ghost,.btn-linkedin,.nav-hire').forEach(function(btn){
     btn.addEventListener('click',function(e){
       var r=btn.getBoundingClientRect(),sz=Math.max(r.width,r.height);
       var s=document.createElement('span');
